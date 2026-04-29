@@ -24,3 +24,5 @@ app.MapGet("/shipping", (decimal weight, IShippingService shippingService) =>
         Weight = weight,
     });
 });
+
+app.Run();
