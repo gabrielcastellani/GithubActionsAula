@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="src/GithubActionsAula.Api/GithubActionsAula.Api.csproj" />
+  <Project Path="tests/GithubActionsAula.Tests/GithubActionsAula.Tests.csproj" />
+</Solution>
