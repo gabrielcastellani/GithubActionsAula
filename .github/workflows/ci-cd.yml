@@ -28,3 +28,19 @@ jobs:
       
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal
+
+    - name: Login no Docker Hub
+      uses: docker/login-actions@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Gerar e publicar imagem no Docker Hub
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: |
+          ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-aula-api:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-aula-api:${{ github.sha }}
