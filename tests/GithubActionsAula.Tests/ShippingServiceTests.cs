@@ -23,7 +23,7 @@ namespace GithubActionsAula.Tests
         public void It_should_throw_an_error_if_the_weight_is_zero()
         {
             var service = new ShippingService();
-            Assert.Throws<ArgumentNullException>(() => service.Calculate(0));
+            Assert.Throws<ArgumentException>(() => service.Calculate(0));
         }
     }
 }
